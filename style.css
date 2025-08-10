@@ -1,0 +1,91 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Main background gradient */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #b7dff6, #d6ebfa, #a9d1f0, #c2e1f5);
+    background-size: 400% 400%;
+    animation: gradientFlow 40s ease-in-out infinite;
+    position: relative;
+}
+
+/* Soft animated overlay layer */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(200,230,255,0.2), rgba(255,255,255,0.15));
+    background-size: 200% 200%;
+    animation: overlayMove 80s ease-in-out infinite;
+    z-index: 0;
+}
+
+/* Light particle shimmer */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.05;
+    animation: particleFloat 40s linear infinite;
+    z-index: 0;
+}
+
+/* Glass effect container */
+.glass {
+    position: relative;
+    z-index: 1;
+    padding: 40px 80px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(255,255,255,0.08);
+    animation: floatText 6s ease-in-out infinite;
+    text-align: center;
+}
+
+/* Main title */
+h1 {
+    font-size: 5rem;
+    color: white;
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+    margin: 0;
+}
+
+/* Sub text */
+p {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 15px;
+}
+
+/* Animations */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes overlayMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes particleFloat {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 200px; }
+}
+
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
